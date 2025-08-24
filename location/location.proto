@@ -1,0 +1,29 @@
+syntax = "proto3";
+
+package location;
+
+option go_package = "github.com/ozdemirmurat2000/takas-proto/location";
+
+// Location servisi
+service LocationService {
+  rpc CheckCityByID(CheckCityRequestByID) returns (CheckCityResponse);
+  rpc CheckDistrict(CheckDistrictRequest) returns (CheckDistrictResponse);
+}
+
+message CheckCityRequestByID {
+  string id = 1;
+}
+
+message CheckCityResponse {
+  bool exists = 1;
+}
+
+message CheckDistrictRequest {
+  string city_id = 1;
+  string district_id = 2;
+}
+
+message CheckDistrictResponse {
+  bool exists = 1;
+}
+
