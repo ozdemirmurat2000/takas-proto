@@ -19,7 +19,8 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
-	CategoryService_CheckCategory_FullMethodName = "/category.CategoryService/CheckCategory"
+	CategoryService_CheckCategory_FullMethodName   = "/category.CategoryService/CheckCategory"
+	CategoryService_GetCategoryByID_FullMethodName = "/category.CategoryService/GetCategoryByID"
 )
 
 // CategoryServiceClient is the client API for CategoryService service.
@@ -29,6 +30,7 @@ const (
 // Category servisi
 type CategoryServiceClient interface {
 	CheckCategory(ctx context.Context, in *CheckCategoryRequest, opts ...grpc.CallOption) (*CheckCategoryResponse, error)
+	GetCategoryByID(ctx context.Context, in *GetCategoryByIDRequest, opts ...grpc.CallOption) (*GetCategoryByIDResponse, error)
 }
 
 type categoryServiceClient struct {
@@ -49,6 +51,16 @@ func (c *categoryServiceClient) CheckCategory(ctx context.Context, in *CheckCate
 	return out, nil
 }
 
+func (c *categoryServiceClient) GetCategoryByID(ctx context.Context, in *GetCategoryByIDRequest, opts ...grpc.CallOption) (*GetCategoryByIDResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetCategoryByIDResponse)
+	err := c.cc.Invoke(ctx, CategoryService_GetCategoryByID_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // CategoryServiceServer is the server API for CategoryService service.
 // All implementations must embed UnimplementedCategoryServiceServer
 // for forward compatibility.
@@ -56,6 +68,7 @@ func (c *categoryServiceClient) CheckCategory(ctx context.Context, in *CheckCate
 // Category servisi
 type CategoryServiceServer interface {
 	CheckCategory(context.Context, *CheckCategoryRequest) (*CheckCategoryResponse, error)
+	GetCategoryByID(context.Context, *GetCategoryByIDRequest) (*GetCategoryByIDResponse, error)
 	mustEmbedUnimplementedCategoryServiceServer()
 }
 
@@ -68,6 +81,9 @@ type UnimplementedCategoryServiceServer struct{}
 
 func (UnimplementedCategoryServiceServer) CheckCategory(context.Context, *CheckCategoryRequest) (*CheckCategoryResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method CheckCategory not implemented")
+}
+func (UnimplementedCategoryServiceServer) GetCategoryByID(context.Context, *GetCategoryByIDRequest) (*GetCategoryByIDResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetCategoryByID not implemented")
 }
 func (UnimplementedCategoryServiceServer) mustEmbedUnimplementedCategoryServiceServer() {}
 func (UnimplementedCategoryServiceServer) testEmbeddedByValue()                         {}
@@ -108,6 +124,24 @@ func _CategoryService_CheckCategory_Handler(srv interface{}, ctx context.Context
 	return interceptor(ctx, in, info, handler)
 }
 
+func _CategoryService_GetCategoryByID_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetCategoryByIDRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CategoryServiceServer).GetCategoryByID(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CategoryService_GetCategoryByID_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CategoryServiceServer).GetCategoryByID(ctx, req.(*GetCategoryByIDRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 // CategoryService_ServiceDesc is the grpc.ServiceDesc for CategoryService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -118,6 +152,10 @@ var CategoryService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "CheckCategory",
 			Handler:    _CategoryService_CheckCategory_Handler,
+		},
+		{
+			MethodName: "GetCategoryByID",
+			Handler:    _CategoryService_GetCategoryByID_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

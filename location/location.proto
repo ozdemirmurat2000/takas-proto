@@ -2,12 +2,30 @@ syntax = "proto3";
 
 package location;
 
-option go_package = "github.com/ozdemirmurat2000/takas-proto/location";
+option go_package = "/location";
 
 // Location servisi
 service LocationService {
   rpc CheckCityByID(CheckCityRequestByID) returns (CheckCityResponse);
   rpc CheckDistrict(CheckDistrictRequest) returns (CheckDistrictResponse);
+  rpc GetDistrictsByIDS(GetDistrictsByIDSRequest) returns (GetDistrictsByIDSResponse);
+  rpc GetCityByID(GetCityByIDRequest) returns (GetCityByIDResponse);
+}
+
+message GetDistrictsByIDSRequest {
+  repeated string ids = 1;
+}
+
+message GetDistrictsByIDSResponse {
+  repeated string names = 1;
+}
+
+message GetCityByIDRequest {
+  string id = 1;
+}
+
+message GetCityByIDResponse {
+  string name = 1;
 }
 
 message CheckCityRequestByID {
