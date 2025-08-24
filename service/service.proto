@@ -1,0 +1,27 @@
+syntax = "proto3";
+
+package service;
+
+option go_package = "github.com/ozdemirmurat2000/takas-proto/service";
+
+// Service servisi
+service ServiceService {
+  rpc CreateUserServiceProfile(CreateUserServiceProfileRequest) returns (CreateUserServiceProfileResponse);
+}
+
+
+
+message CreateUserServiceProfileRequest {
+  string user_id = 1;
+  string servicing_category_id = 2;
+  string servicing_city_id = 3;
+  string servicing_location = 4;
+  repeated string servicing_district_ids = 5;
+  repeated string servicing_keywords = 6;
+}
+message CreateUserServiceProfileResponse {
+  bool success = 1;
+  string message = 2;
+}
+
+
