@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+package category;
+
+option go_package = "github.com/ozdemirmurat2000/takas-proto/category";
+
+// Category servisi
+service CategoryService {
+  rpc CheckCategory(CheckCategoryRequest) returns (CheckCategoryResponse);
+}
+
+message CheckCategoryRequest {
+  string id = 1;
+}
+
+message CheckCategoryResponse {
+  bool exists = 1;
+}
