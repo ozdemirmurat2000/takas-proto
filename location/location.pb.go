@@ -21,182 +21,6 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
-type GetDistrictsByIDSRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Ids           []string               `protobuf:"bytes,1,rep,name=ids,proto3" json:"ids,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetDistrictsByIDSRequest) Reset() {
-	*x = GetDistrictsByIDSRequest{}
-	mi := &file_location_location_proto_msgTypes[0]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetDistrictsByIDSRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetDistrictsByIDSRequest) ProtoMessage() {}
-
-func (x *GetDistrictsByIDSRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_location_location_proto_msgTypes[0]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetDistrictsByIDSRequest.ProtoReflect.Descriptor instead.
-func (*GetDistrictsByIDSRequest) Descriptor() ([]byte, []int) {
-	return file_location_location_proto_rawDescGZIP(), []int{0}
-}
-
-func (x *GetDistrictsByIDSRequest) GetIds() []string {
-	if x != nil {
-		return x.Ids
-	}
-	return nil
-}
-
-type GetDistrictsByIDSResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Names         []string               `protobuf:"bytes,1,rep,name=names,proto3" json:"names,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetDistrictsByIDSResponse) Reset() {
-	*x = GetDistrictsByIDSResponse{}
-	mi := &file_location_location_proto_msgTypes[1]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetDistrictsByIDSResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetDistrictsByIDSResponse) ProtoMessage() {}
-
-func (x *GetDistrictsByIDSResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_location_location_proto_msgTypes[1]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetDistrictsByIDSResponse.ProtoReflect.Descriptor instead.
-func (*GetDistrictsByIDSResponse) Descriptor() ([]byte, []int) {
-	return file_location_location_proto_rawDescGZIP(), []int{1}
-}
-
-func (x *GetDistrictsByIDSResponse) GetNames() []string {
-	if x != nil {
-		return x.Names
-	}
-	return nil
-}
-
-type GetCityByIDRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Id            string                 `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetCityByIDRequest) Reset() {
-	*x = GetCityByIDRequest{}
-	mi := &file_location_location_proto_msgTypes[2]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetCityByIDRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetCityByIDRequest) ProtoMessage() {}
-
-func (x *GetCityByIDRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_location_location_proto_msgTypes[2]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetCityByIDRequest.ProtoReflect.Descriptor instead.
-func (*GetCityByIDRequest) Descriptor() ([]byte, []int) {
-	return file_location_location_proto_rawDescGZIP(), []int{2}
-}
-
-func (x *GetCityByIDRequest) GetId() string {
-	if x != nil {
-		return x.Id
-	}
-	return ""
-}
-
-type GetCityByIDResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Name          string                 `protobuf:"bytes,1,opt,name=name,proto3" json:"name,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetCityByIDResponse) Reset() {
-	*x = GetCityByIDResponse{}
-	mi := &file_location_location_proto_msgTypes[3]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetCityByIDResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetCityByIDResponse) ProtoMessage() {}
-
-func (x *GetCityByIDResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_location_location_proto_msgTypes[3]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetCityByIDResponse.ProtoReflect.Descriptor instead.
-func (*GetCityByIDResponse) Descriptor() ([]byte, []int) {
-	return file_location_location_proto_rawDescGZIP(), []int{3}
-}
-
-func (x *GetCityByIDResponse) GetName() string {
-	if x != nil {
-		return x.Name
-	}
-	return ""
-}
-
 type CheckCityRequestByID struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Id            string                 `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
@@ -206,7 +30,7 @@ type CheckCityRequestByID struct {
 
 func (x *CheckCityRequestByID) Reset() {
 	*x = CheckCityRequestByID{}
-	mi := &file_location_location_proto_msgTypes[4]
+	mi := &file_location_location_proto_msgTypes[0]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -218,7 +42,7 @@ func (x *CheckCityRequestByID) String() string {
 func (*CheckCityRequestByID) ProtoMessage() {}
 
 func (x *CheckCityRequestByID) ProtoReflect() protoreflect.Message {
-	mi := &file_location_location_proto_msgTypes[4]
+	mi := &file_location_location_proto_msgTypes[0]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -231,7 +55,7 @@ func (x *CheckCityRequestByID) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CheckCityRequestByID.ProtoReflect.Descriptor instead.
 func (*CheckCityRequestByID) Descriptor() ([]byte, []int) {
-	return file_location_location_proto_rawDescGZIP(), []int{4}
+	return file_location_location_proto_rawDescGZIP(), []int{0}
 }
 
 func (x *CheckCityRequestByID) GetId() string {
@@ -250,7 +74,7 @@ type CheckCityResponse struct {
 
 func (x *CheckCityResponse) Reset() {
 	*x = CheckCityResponse{}
-	mi := &file_location_location_proto_msgTypes[5]
+	mi := &file_location_location_proto_msgTypes[1]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -262,7 +86,7 @@ func (x *CheckCityResponse) String() string {
 func (*CheckCityResponse) ProtoMessage() {}
 
 func (x *CheckCityResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_location_location_proto_msgTypes[5]
+	mi := &file_location_location_proto_msgTypes[1]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -275,7 +99,7 @@ func (x *CheckCityResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CheckCityResponse.ProtoReflect.Descriptor instead.
 func (*CheckCityResponse) Descriptor() ([]byte, []int) {
-	return file_location_location_proto_rawDescGZIP(), []int{5}
+	return file_location_location_proto_rawDescGZIP(), []int{1}
 }
 
 func (x *CheckCityResponse) GetExists() bool {
@@ -295,7 +119,7 @@ type CheckDistrictRequest struct {
 
 func (x *CheckDistrictRequest) Reset() {
 	*x = CheckDistrictRequest{}
-	mi := &file_location_location_proto_msgTypes[6]
+	mi := &file_location_location_proto_msgTypes[2]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -307,7 +131,7 @@ func (x *CheckDistrictRequest) String() string {
 func (*CheckDistrictRequest) ProtoMessage() {}
 
 func (x *CheckDistrictRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_location_location_proto_msgTypes[6]
+	mi := &file_location_location_proto_msgTypes[2]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -320,7 +144,7 @@ func (x *CheckDistrictRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CheckDistrictRequest.ProtoReflect.Descriptor instead.
 func (*CheckDistrictRequest) Descriptor() ([]byte, []int) {
-	return file_location_location_proto_rawDescGZIP(), []int{6}
+	return file_location_location_proto_rawDescGZIP(), []int{2}
 }
 
 func (x *CheckDistrictRequest) GetCityId() string {
@@ -346,7 +170,7 @@ type CheckDistrictResponse struct {
 
 func (x *CheckDistrictResponse) Reset() {
 	*x = CheckDistrictResponse{}
-	mi := &file_location_location_proto_msgTypes[7]
+	mi := &file_location_location_proto_msgTypes[3]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -358,7 +182,7 @@ func (x *CheckDistrictResponse) String() string {
 func (*CheckDistrictResponse) ProtoMessage() {}
 
 func (x *CheckDistrictResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_location_location_proto_msgTypes[7]
+	mi := &file_location_location_proto_msgTypes[3]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -371,7 +195,7 @@ func (x *CheckDistrictResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CheckDistrictResponse.ProtoReflect.Descriptor instead.
 func (*CheckDistrictResponse) Descriptor() ([]byte, []int) {
-	return file_location_location_proto_rawDescGZIP(), []int{7}
+	return file_location_location_proto_rawDescGZIP(), []int{3}
 }
 
 func (x *CheckDistrictResponse) GetExists() bool {
@@ -381,19 +205,207 @@ func (x *CheckDistrictResponse) GetExists() bool {
 	return false
 }
 
+type GetUserLocationByUserIDRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	UserId        string                 `protobuf:"bytes,1,opt,name=user_id,json=userId,proto3" json:"user_id,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetUserLocationByUserIDRequest) Reset() {
+	*x = GetUserLocationByUserIDRequest{}
+	mi := &file_location_location_proto_msgTypes[4]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetUserLocationByUserIDRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetUserLocationByUserIDRequest) ProtoMessage() {}
+
+func (x *GetUserLocationByUserIDRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_location_location_proto_msgTypes[4]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetUserLocationByUserIDRequest.ProtoReflect.Descriptor instead.
+func (*GetUserLocationByUserIDRequest) Descriptor() ([]byte, []int) {
+	return file_location_location_proto_rawDescGZIP(), []int{4}
+}
+
+func (x *GetUserLocationByUserIDRequest) GetUserId() string {
+	if x != nil {
+		return x.UserId
+	}
+	return ""
+}
+
+type UserLocationResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Id            string                 `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
+	Name          string                 `protobuf:"bytes,2,opt,name=name,proto3" json:"name,omitempty"`
+	Slug          string                 `protobuf:"bytes,3,opt,name=slug,proto3" json:"slug,omitempty"`
+	ZipCode       int32                  `protobuf:"varint,4,opt,name=zip_code,json=zipCode,proto3" json:"zip_code,omitempty"`
+	PlateCode     int32                  `protobuf:"varint,5,opt,name=plate_code,json=plateCode,proto3" json:"plate_code,omitempty"`
+	Districts     []*DistrictResponse    `protobuf:"bytes,6,rep,name=districts,proto3" json:"districts,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *UserLocationResponse) Reset() {
+	*x = UserLocationResponse{}
+	mi := &file_location_location_proto_msgTypes[5]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *UserLocationResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*UserLocationResponse) ProtoMessage() {}
+
+func (x *UserLocationResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_location_location_proto_msgTypes[5]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use UserLocationResponse.ProtoReflect.Descriptor instead.
+func (*UserLocationResponse) Descriptor() ([]byte, []int) {
+	return file_location_location_proto_rawDescGZIP(), []int{5}
+}
+
+func (x *UserLocationResponse) GetId() string {
+	if x != nil {
+		return x.Id
+	}
+	return ""
+}
+
+func (x *UserLocationResponse) GetName() string {
+	if x != nil {
+		return x.Name
+	}
+	return ""
+}
+
+func (x *UserLocationResponse) GetSlug() string {
+	if x != nil {
+		return x.Slug
+	}
+	return ""
+}
+
+func (x *UserLocationResponse) GetZipCode() int32 {
+	if x != nil {
+		return x.ZipCode
+	}
+	return 0
+}
+
+func (x *UserLocationResponse) GetPlateCode() int32 {
+	if x != nil {
+		return x.PlateCode
+	}
+	return 0
+}
+
+func (x *UserLocationResponse) GetDistricts() []*DistrictResponse {
+	if x != nil {
+		return x.Districts
+	}
+	return nil
+}
+
+type DistrictResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Id            string                 `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
+	CityId        string                 `protobuf:"bytes,2,opt,name=city_id,json=cityId,proto3" json:"city_id,omitempty"`
+	Name          string                 `protobuf:"bytes,3,opt,name=name,proto3" json:"name,omitempty"`
+	Slug          string                 `protobuf:"bytes,4,opt,name=slug,proto3" json:"slug,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *DistrictResponse) Reset() {
+	*x = DistrictResponse{}
+	mi := &file_location_location_proto_msgTypes[6]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *DistrictResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*DistrictResponse) ProtoMessage() {}
+
+func (x *DistrictResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_location_location_proto_msgTypes[6]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use DistrictResponse.ProtoReflect.Descriptor instead.
+func (*DistrictResponse) Descriptor() ([]byte, []int) {
+	return file_location_location_proto_rawDescGZIP(), []int{6}
+}
+
+func (x *DistrictResponse) GetId() string {
+	if x != nil {
+		return x.Id
+	}
+	return ""
+}
+
+func (x *DistrictResponse) GetCityId() string {
+	if x != nil {
+		return x.CityId
+	}
+	return ""
+}
+
+func (x *DistrictResponse) GetName() string {
+	if x != nil {
+		return x.Name
+	}
+	return ""
+}
+
+func (x *DistrictResponse) GetSlug() string {
+	if x != nil {
+		return x.Slug
+	}
+	return ""
+}
+
 var File_location_location_proto protoreflect.FileDescriptor
 
 const file_location_location_proto_rawDesc = "" +
 	"\n" +
-	"\x17location/location.proto\x12\blocation\",\n" +
-	"\x18GetDistrictsByIDSRequest\x12\x10\n" +
-	"\x03ids\x18\x01 \x03(\tR\x03ids\"1\n" +
-	"\x19GetDistrictsByIDSResponse\x12\x14\n" +
-	"\x05names\x18\x01 \x03(\tR\x05names\"$\n" +
-	"\x12GetCityByIDRequest\x12\x0e\n" +
-	"\x02id\x18\x01 \x01(\tR\x02id\")\n" +
-	"\x13GetCityByIDResponse\x12\x12\n" +
-	"\x04name\x18\x01 \x01(\tR\x04name\"&\n" +
+	"\x17location/location.proto\x12\blocation\"&\n" +
 	"\x14CheckCityRequestByID\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\tR\x02id\"+\n" +
 	"\x11CheckCityResponse\x12\x16\n" +
@@ -403,12 +415,26 @@ const file_location_location_proto_rawDesc = "" +
 	"\vdistrict_id\x18\x02 \x01(\tR\n" +
 	"districtId\"/\n" +
 	"\x15CheckDistrictResponse\x12\x16\n" +
-	"\x06exists\x18\x01 \x01(\bR\x06exists2\xdb\x02\n" +
+	"\x06exists\x18\x01 \x01(\bR\x06exists\"9\n" +
+	"\x1eGetUserLocationByUserIDRequest\x12\x17\n" +
+	"\auser_id\x18\x01 \x01(\tR\x06userId\"\xc2\x01\n" +
+	"\x14UserLocationResponse\x12\x0e\n" +
+	"\x02id\x18\x01 \x01(\tR\x02id\x12\x12\n" +
+	"\x04name\x18\x02 \x01(\tR\x04name\x12\x12\n" +
+	"\x04slug\x18\x03 \x01(\tR\x04slug\x12\x19\n" +
+	"\bzip_code\x18\x04 \x01(\x05R\azipCode\x12\x1d\n" +
+	"\n" +
+	"plate_code\x18\x05 \x01(\x05R\tplateCode\x128\n" +
+	"\tdistricts\x18\x06 \x03(\v2\x1a.location.DistrictResponseR\tdistricts\"c\n" +
+	"\x10DistrictResponse\x12\x0e\n" +
+	"\x02id\x18\x01 \x01(\tR\x02id\x12\x17\n" +
+	"\acity_id\x18\x02 \x01(\tR\x06cityId\x12\x12\n" +
+	"\x04name\x18\x03 \x01(\tR\x04name\x12\x12\n" +
+	"\x04slug\x18\x04 \x01(\tR\x04slug2\x96\x02\n" +
 	"\x0fLocationService\x12L\n" +
 	"\rCheckCityByID\x12\x1e.location.CheckCityRequestByID\x1a\x1b.location.CheckCityResponse\x12P\n" +
-	"\rCheckDistrict\x12\x1e.location.CheckDistrictRequest\x1a\x1f.location.CheckDistrictResponse\x12\\\n" +
-	"\x11GetDistrictsByIDS\x12\".location.GetDistrictsByIDSRequest\x1a#.location.GetDistrictsByIDSResponse\x12J\n" +
-	"\vGetCityByID\x12\x1c.location.GetCityByIDRequest\x1a\x1d.location.GetCityByIDResponseB\vZ\t/locationb\x06proto3"
+	"\rCheckDistrict\x12\x1e.location.CheckDistrictRequest\x1a\x1f.location.CheckDistrictResponse\x12c\n" +
+	"\x17GetUserLocationByUserID\x12(.location.GetUserLocationByUserIDRequest\x1a\x1e.location.UserLocationResponseB\vZ\t/locationb\x06proto3"
 
 var (
 	file_location_location_proto_rawDescOnce sync.Once
@@ -422,31 +448,29 @@ func file_location_location_proto_rawDescGZIP() []byte {
 	return file_location_location_proto_rawDescData
 }
 
-var file_location_location_proto_msgTypes = make([]protoimpl.MessageInfo, 8)
+var file_location_location_proto_msgTypes = make([]protoimpl.MessageInfo, 7)
 var file_location_location_proto_goTypes = []any{
-	(*GetDistrictsByIDSRequest)(nil),  // 0: location.GetDistrictsByIDSRequest
-	(*GetDistrictsByIDSResponse)(nil), // 1: location.GetDistrictsByIDSResponse
-	(*GetCityByIDRequest)(nil),        // 2: location.GetCityByIDRequest
-	(*GetCityByIDResponse)(nil),       // 3: location.GetCityByIDResponse
-	(*CheckCityRequestByID)(nil),      // 4: location.CheckCityRequestByID
-	(*CheckCityResponse)(nil),         // 5: location.CheckCityResponse
-	(*CheckDistrictRequest)(nil),      // 6: location.CheckDistrictRequest
-	(*CheckDistrictResponse)(nil),     // 7: location.CheckDistrictResponse
+	(*CheckCityRequestByID)(nil),           // 0: location.CheckCityRequestByID
+	(*CheckCityResponse)(nil),              // 1: location.CheckCityResponse
+	(*CheckDistrictRequest)(nil),           // 2: location.CheckDistrictRequest
+	(*CheckDistrictResponse)(nil),          // 3: location.CheckDistrictResponse
+	(*GetUserLocationByUserIDRequest)(nil), // 4: location.GetUserLocationByUserIDRequest
+	(*UserLocationResponse)(nil),           // 5: location.UserLocationResponse
+	(*DistrictResponse)(nil),               // 6: location.DistrictResponse
 }
 var file_location_location_proto_depIdxs = []int32{
-	4, // 0: location.LocationService.CheckCityByID:input_type -> location.CheckCityRequestByID
-	6, // 1: location.LocationService.CheckDistrict:input_type -> location.CheckDistrictRequest
-	0, // 2: location.LocationService.GetDistrictsByIDS:input_type -> location.GetDistrictsByIDSRequest
-	2, // 3: location.LocationService.GetCityByID:input_type -> location.GetCityByIDRequest
-	5, // 4: location.LocationService.CheckCityByID:output_type -> location.CheckCityResponse
-	7, // 5: location.LocationService.CheckDistrict:output_type -> location.CheckDistrictResponse
-	1, // 6: location.LocationService.GetDistrictsByIDS:output_type -> location.GetDistrictsByIDSResponse
-	3, // 7: location.LocationService.GetCityByID:output_type -> location.GetCityByIDResponse
-	4, // [4:8] is the sub-list for method output_type
-	0, // [0:4] is the sub-list for method input_type
-	0, // [0:0] is the sub-list for extension type_name
-	0, // [0:0] is the sub-list for extension extendee
-	0, // [0:0] is the sub-list for field type_name
+	6, // 0: location.UserLocationResponse.districts:type_name -> location.DistrictResponse
+	0, // 1: location.LocationService.CheckCityByID:input_type -> location.CheckCityRequestByID
+	2, // 2: location.LocationService.CheckDistrict:input_type -> location.CheckDistrictRequest
+	4, // 3: location.LocationService.GetUserLocationByUserID:input_type -> location.GetUserLocationByUserIDRequest
+	1, // 4: location.LocationService.CheckCityByID:output_type -> location.CheckCityResponse
+	3, // 5: location.LocationService.CheckDistrict:output_type -> location.CheckDistrictResponse
+	5, // 6: location.LocationService.GetUserLocationByUserID:output_type -> location.UserLocationResponse
+	4, // [4:7] is the sub-list for method output_type
+	1, // [1:4] is the sub-list for method input_type
+	1, // [1:1] is the sub-list for extension type_name
+	1, // [1:1] is the sub-list for extension extendee
+	0, // [0:1] is the sub-list for field type_name
 }
 
 func init() { file_location_location_proto_init() }
@@ -460,7 +484,7 @@ func file_location_location_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_location_location_proto_rawDesc), len(file_location_location_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   8,
+			NumMessages:   7,
 			NumExtensions: 0,
 			NumServices:   1,
 		},

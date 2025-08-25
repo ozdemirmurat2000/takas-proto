@@ -19,10 +19,9 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
-	LocationService_CheckCityByID_FullMethodName     = "/location.LocationService/CheckCityByID"
-	LocationService_CheckDistrict_FullMethodName     = "/location.LocationService/CheckDistrict"
-	LocationService_GetDistrictsByIDS_FullMethodName = "/location.LocationService/GetDistrictsByIDS"
-	LocationService_GetCityByID_FullMethodName       = "/location.LocationService/GetCityByID"
+	LocationService_CheckCityByID_FullMethodName           = "/location.LocationService/CheckCityByID"
+	LocationService_CheckDistrict_FullMethodName           = "/location.LocationService/CheckDistrict"
+	LocationService_GetUserLocationByUserID_FullMethodName = "/location.LocationService/GetUserLocationByUserID"
 )
 
 // LocationServiceClient is the client API for LocationService service.
@@ -33,8 +32,7 @@ const (
 type LocationServiceClient interface {
 	CheckCityByID(ctx context.Context, in *CheckCityRequestByID, opts ...grpc.CallOption) (*CheckCityResponse, error)
 	CheckDistrict(ctx context.Context, in *CheckDistrictRequest, opts ...grpc.CallOption) (*CheckDistrictResponse, error)
-	GetDistrictsByIDS(ctx context.Context, in *GetDistrictsByIDSRequest, opts ...grpc.CallOption) (*GetDistrictsByIDSResponse, error)
-	GetCityByID(ctx context.Context, in *GetCityByIDRequest, opts ...grpc.CallOption) (*GetCityByIDResponse, error)
+	GetUserLocationByUserID(ctx context.Context, in *GetUserLocationByUserIDRequest, opts ...grpc.CallOption) (*UserLocationResponse, error)
 }
 
 type locationServiceClient struct {
@@ -65,20 +63,10 @@ func (c *locationServiceClient) CheckDistrict(ctx context.Context, in *CheckDist
 	return out, nil
 }
 
-func (c *locationServiceClient) GetDistrictsByIDS(ctx context.Context, in *GetDistrictsByIDSRequest, opts ...grpc.CallOption) (*GetDistrictsByIDSResponse, error) {
+func (c *locationServiceClient) GetUserLocationByUserID(ctx context.Context, in *GetUserLocationByUserIDRequest, opts ...grpc.CallOption) (*UserLocationResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetDistrictsByIDSResponse)
-	err := c.cc.Invoke(ctx, LocationService_GetDistrictsByIDS_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *locationServiceClient) GetCityByID(ctx context.Context, in *GetCityByIDRequest, opts ...grpc.CallOption) (*GetCityByIDResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetCityByIDResponse)
-	err := c.cc.Invoke(ctx, LocationService_GetCityByID_FullMethodName, in, out, cOpts...)
+	out := new(UserLocationResponse)
+	err := c.cc.Invoke(ctx, LocationService_GetUserLocationByUserID_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
@@ -93,8 +81,7 @@ func (c *locationServiceClient) GetCityByID(ctx context.Context, in *GetCityByID
 type LocationServiceServer interface {
 	CheckCityByID(context.Context, *CheckCityRequestByID) (*CheckCityResponse, error)
 	CheckDistrict(context.Context, *CheckDistrictRequest) (*CheckDistrictResponse, error)
-	GetDistrictsByIDS(context.Context, *GetDistrictsByIDSRequest) (*GetDistrictsByIDSResponse, error)
-	GetCityByID(context.Context, *GetCityByIDRequest) (*GetCityByIDResponse, error)
+	GetUserLocationByUserID(context.Context, *GetUserLocationByUserIDRequest) (*UserLocationResponse, error)
 	mustEmbedUnimplementedLocationServiceServer()
 }
 
@@ -111,11 +98,8 @@ func (UnimplementedLocationServiceServer) CheckCityByID(context.Context, *CheckC
 func (UnimplementedLocationServiceServer) CheckDistrict(context.Context, *CheckDistrictRequest) (*CheckDistrictResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method CheckDistrict not implemented")
 }
-func (UnimplementedLocationServiceServer) GetDistrictsByIDS(context.Context, *GetDistrictsByIDSRequest) (*GetDistrictsByIDSResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method GetDistrictsByIDS not implemented")
-}
-func (UnimplementedLocationServiceServer) GetCityByID(context.Context, *GetCityByIDRequest) (*GetCityByIDResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method GetCityByID not implemented")
+func (UnimplementedLocationServiceServer) GetUserLocationByUserID(context.Context, *GetUserLocationByUserIDRequest) (*UserLocationResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetUserLocationByUserID not implemented")
 }
 func (UnimplementedLocationServiceServer) mustEmbedUnimplementedLocationServiceServer() {}
 func (UnimplementedLocationServiceServer) testEmbeddedByValue()                         {}
@@ -174,38 +158,20 @@ func _LocationService_CheckDistrict_Handler(srv interface{}, ctx context.Context
 	return interceptor(ctx, in, info, handler)
 }
 
-func _LocationService_GetDistrictsByIDS_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetDistrictsByIDSRequest)
+func _LocationService_GetUserLocationByUserID_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetUserLocationByUserIDRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(LocationServiceServer).GetDistrictsByIDS(ctx, in)
+		return srv.(LocationServiceServer).GetUserLocationByUserID(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: LocationService_GetDistrictsByIDS_FullMethodName,
+		FullMethod: LocationService_GetUserLocationByUserID_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(LocationServiceServer).GetDistrictsByIDS(ctx, req.(*GetDistrictsByIDSRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _LocationService_GetCityByID_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetCityByIDRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(LocationServiceServer).GetCityByID(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: LocationService_GetCityByID_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(LocationServiceServer).GetCityByID(ctx, req.(*GetCityByIDRequest))
+		return srv.(LocationServiceServer).GetUserLocationByUserID(ctx, req.(*GetUserLocationByUserIDRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -226,12 +192,8 @@ var LocationService_ServiceDesc = grpc.ServiceDesc{
 			Handler:    _LocationService_CheckDistrict_Handler,
 		},
 		{
-			MethodName: "GetDistrictsByIDS",
-			Handler:    _LocationService_GetDistrictsByIDS_Handler,
-		},
-		{
-			MethodName: "GetCityByID",
-			Handler:    _LocationService_GetCityByID_Handler,
+			MethodName: "GetUserLocationByUserID",
+			Handler:    _LocationService_GetUserLocationByUserID_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

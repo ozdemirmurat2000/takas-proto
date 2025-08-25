@@ -8,24 +8,7 @@ option go_package = "/location";
 service LocationService {
   rpc CheckCityByID(CheckCityRequestByID) returns (CheckCityResponse);
   rpc CheckDistrict(CheckDistrictRequest) returns (CheckDistrictResponse);
-  rpc GetDistrictsByIDS(GetDistrictsByIDSRequest) returns (GetDistrictsByIDSResponse);
-  rpc GetCityByID(GetCityByIDRequest) returns (GetCityByIDResponse);
-}
-
-message GetDistrictsByIDSRequest {
-  repeated string ids = 1;
-}
-
-message GetDistrictsByIDSResponse {
-  repeated string names = 1;
-}
-
-message GetCityByIDRequest {
-  string id = 1;
-}
-
-message GetCityByIDResponse {
-  string name = 1;
+  rpc GetUserLocationByUserID(GetUserLocationByUserIDRequest) returns (UserLocationResponse);
 }
 
 message CheckCityRequestByID {
@@ -45,3 +28,23 @@ message CheckDistrictResponse {
   bool exists = 1;
 }
 
+message GetUserLocationByUserIDRequest {
+  string user_id = 1;
+}
+
+
+message UserLocationResponse {
+  string id = 1;
+  string name = 2;
+  string slug = 3;
+  int32 zip_code = 4;
+  int32 plate_code = 5;
+  repeated DistrictResponse districts = 6;
+}
+
+message DistrictResponse {
+  string id = 1;
+  string city_id = 2;
+  string name = 3;
+  string slug = 4;
+}
